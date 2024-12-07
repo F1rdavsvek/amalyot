@@ -25,38 +25,38 @@
 #     except ValueError as e:
 #         print(f"Xato: {e}")
 
-import random
-from decimal import Decimal
-from datetime import datetime, timedelta
-
-class Mahsulot:
-    def __init__(self, narx: Decimal):
-        if narx < 0:
-            raise ValueError("Narx manfiy bo'lishi mumkin emas.")
-
-        self.narx = narx
-        self.chegirma = random.randint(1, 50)
-        self.xarid_sana = self.generate_random_date()
-
-    def generate_random_date(self):
-        days_offset = random.randint(-30, 0)
-        return datetime.now() + timedelta(days=days_offset)
-
-    def yangi_narx(self):
-        if self.chegirma < 1 or self.chegirma > 50:
-            raise ValueError("Chegirma noto'g'ri hisoblangan.")
-
-        chegirma_miqdori = (Decimal(self.chegirma) / Decimal(100)) * self.narx
-        yangi_narx = self.narx - chegirma_miqdori
-        return yangi_narx
-
-    def __str__(self):
-        return (f"Mahsulot narxi: {self.narx} UZS, "
-                f"Chegirma: {self.chegirma}%, "
-                f"Yangi narx: {self.yangi_narx()} UZS (Sana: {self.xarid_sana.strftime('%Y-%m-%d')})")
-
-try:
-    mahsulot = Mahsulot(Decimal('100000'))
-    print(mahsulot)
-except ValueError as e:
-    print(f"Xato: {e}")
+# import random
+# from decimal import Decimal
+# from datetime import datetime, timedelta
+#
+# class Mahsulot:
+#     def __init__(self, narx: Decimal):
+#         if narx < 0:
+#             raise ValueError("Narx manfiy bo'lishi mumkin emas.")
+#
+#         self.narx = narx
+#         self.chegirma = random.randint(1, 50)
+#         self.xarid_sana = self.generate_random_date()
+#
+#     def generate_random_date(self):
+#         days_offset = random.randint(-30, 0)
+#         return datetime.now() + timedelta(days=days_offset)
+#
+#     def yangi_narx(self):
+#         if self.chegirma < 1 or self.chegirma > 50:
+#             raise ValueError("Chegirma noto'g'ri hisoblangan.")
+#
+#         chegirma_miqdori = (Decimal(self.chegirma) / Decimal(100)) * self.narx
+#         yangi_narx = self.narx - chegirma_miqdori
+#         return yangi_narx
+#
+#     def __str__(self):
+#         return (f"Mahsulot narxi: {self.narx} UZS, "
+#                 f"Chegirma: {self.chegirma}%, "
+#                 f"Yangi narx: {self.yangi_narx()} UZS (Sana: {self.xarid_sana.strftime('%Y-%m-%d')})")
+#
+# try:
+#     mahsulot = Mahsulot(Decimal('100000'))
+#     print(mahsulot)
+# except ValueError as e:
+#     print(f"Xato: {e}")
