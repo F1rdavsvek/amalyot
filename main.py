@@ -25,6 +25,7 @@
 #     except ValueError as e:
 #         print(f"Xato: {e}")
 
+# 2
 # import random
 # from decimal import Decimal
 # from datetime import datetime, timedelta
