@@ -61,3 +61,4 @@
 #     print(mahsulot)
 # except ValueError as e:
 #     print(f"Xato: {e}")
+
